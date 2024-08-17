@@ -1,8 +1,11 @@
 package com.devInfusion.libraraymanagement.entity;
 
-import lombok.Data;
+import lombok.*;
 
-@Data
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class Employee {
     int employeeId;
     String employeeName;
