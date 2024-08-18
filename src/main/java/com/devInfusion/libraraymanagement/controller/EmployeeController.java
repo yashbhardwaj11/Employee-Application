@@ -26,15 +26,20 @@ public class EmployeeController {
     }
 
     @PostMapping
-    public String createNewEmployee(@RequestBody Employee employee){
-        boolean isAdded = employeeService.createNewEmployee(employee);
-        return isAdded ? "Employee added successfully" : "Something went wrong";
+    public Employee createNewEmployee(@RequestBody Employee employee){
+        return employeeService.createNewEmployee(employee);
     }
 
     @PutMapping("/{id}")
     public String updateEmployeeWithId(@PathVariable int id,@RequestBody Employee employee){
         boolean isUpdated = employeeService.updateEmployee(id,employee);
         return isUpdated ? "Employee updated" : "Something went wrong";
+    }
+
+    @DeleteMapping("/{id}")
+    public String deleteEmployee(@PathVariable int id){
+        boolean isDeleted = employeeService.deleteEmployeeById(id);
+        return isDeleted ? "Employee Deleted" : "Something went wrong";
     }
 
 
